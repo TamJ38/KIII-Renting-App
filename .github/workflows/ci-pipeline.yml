@@ -17,7 +17,7 @@ jobs:
             distribution: 'adopt'
 
       - name: Build with Maven
-        run: ./mvn clean package
+        run: ./lab1/.mvn clean package
 
       - name: Backend Docker Image Build
         run: docker build ./lab1 --file ./lab1/Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/renting-app-backend:latest
