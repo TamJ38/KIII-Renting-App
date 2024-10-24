@@ -18,6 +18,7 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean package -DskipTests
+        working-directory: ./lab1
 
       - name: Backend Docker Image Build
         run: docker build ./lab1 --file ./lab1/Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/renting-app-backend:latest
