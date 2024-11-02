@@ -1,0 +1,49 @@
+## service-backend.yaml
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: accommodations-backend-service
+#  namespace: accommodations
+#spec:
+#  type: ClusterIP
+#  selector:
+#    app: accommodations-backend  # Use a different label
+#  ports:
+#    - name: http
+#      protocol: TCP
+#      port: 9090
+#      targetPort: 9090
+#
+#
+#---
+#
+## service-frontend.yaml
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: accommodations-frontend-service
+#  namespace: accommodations
+#spec:
+#  type: ClusterIP
+#  selector:
+#    app: accommodations-frontend  # Use a different label
+#  ports:
+#    - name: http
+#      protocol: TCP
+#      port: 80
+#      targetPort: 3000
+#
+#
+#---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: db
+#  namespace: accommodations
+#spec:
+#  ports:
+#    - port: 5432
+#      targetPort: 5432
+#  selector:
+#    app: db  # Make sure this matches the labels in your PostgreSQL pod/deployment
+#  type: ClusterIP

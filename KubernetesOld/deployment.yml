@@ -1,0 +1,43 @@
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: accommodations-backend
+#  namespace: accommodations
+#spec:
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: accommodations-backend
+#  template:
+#    metadata:
+#      labels:
+#        app: accommodations-backend
+#    spec:
+#      containers:
+#        - name: backend
+#          image: tammy38/renting-app-backend:latest
+#          ports:
+#            - containerPort: 9090
+#
+#
+#---
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: accommodations-app
+#  namespace: accommodations
+#spec:
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: accommodations-frontend
+#  template:
+#    metadata:
+#      labels:
+#        app: accommodations-frontend
+#    spec:
+#      containers:
+#        - name: frontend
+#          image: tammy38/renting-app-frontend:latest
+#          ports:
+#            - containerPort: 3000

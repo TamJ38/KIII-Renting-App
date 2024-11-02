@@ -1,0 +1,105 @@
+#apiVersion: v1
+#kind: PersistentVolume
+#metadata:
+#  name: db-storage
+#  namespace: accommodations
+#spec:
+#  capacity:
+#    storage: 1Gi
+#  accessModes:
+#    - ReadWriteOnce
+#  hostPath:
+#    path: /mnt/c/Users/Hristijan/Desktop/FINKI_6_SEMESTAR/KONTINUIRANA_INTEGRACIJA_I_ISPORAKA/New folder/Renting-app
+#  persistentVolumeReclaimPolicy: Retain
+#
+#
+#
+#---
+#
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  name: db-storage
+#  namespace: accommodations
+#spec:
+#  accessModes:
+#    - ReadWriteOnce
+#  resources:
+#    requests:
+#      storage: 1Gi
+#
+#---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db
+  namespace: accommodations
+spec:
+  serviceName: db
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: tammy38
+            - name: POSTGRES_DB
+              value: accommodations-renting-db
+#          volumeMounts:
+#             - name: db-storage
+#               mountPath: /var/lib/postgresql/data
+
+
+
+#apiVersion: apps/v1
+#kind: StatefulSet
+#metadata:
+#  name: accommodations-db
+#  namespace: accommodations
+#spec:
+#  serviceName: "db"
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: accommodations-db
+#  template:
+#    metadata:
+#      labels:
+#        app: accommodations-db
+#    spec:
+#      containers:
+#        - name: db
+#          image: postgres:latest
+#          ports:
+#            - containerPort: 5432
+#          env:
+#            - name: POSTGRES_USER
+#              value: postgres
+#            - name: POSTGRES_PASSWORD
+#              value: tammy38
+#            - name: POSTGRES_DB
+#              value: accommodations-renting-db
+#          volumeMounts:
+#            - name: db-storage
+#              mountPath: /var/lib/postgresql/data
+#  volumeClaimTemplates:
+#    - metadata:
+#        name: db-storage
+#      spec:
+#        accessModes: [ "ReadWriteOnce" ]
+#        resources:
+#          requests:
+#            storage: 1Gi
