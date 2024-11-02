@@ -8,6 +8,6 @@ spec:
     - port: 5432
       targetPort: 5432
   selector:
-    app: db  # Make sure this matches the labels in your PostgreSQL pod/deployment
+    app: db
   type: ClusterIP
 

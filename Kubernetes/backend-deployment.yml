@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: tammy38/renting-app-backend:latest # Change this to your backend image
+          image: tammy38/renting-app-backend:latest
           ports:
             - containerPort: 9090
           env:
@@ -26,40 +26,5 @@ spec:
             - name: SPRING_DATASOURCE_PASSWORD
               value: tammy38
 
-#apiVersion: apps/v1
-#kind: Deployment
-#metadata:
-#  name: accommodations-backend
-#  namespace: accommodations
-#spec:
-#  replicas: 1
-#  selector:
-#    matchLabels:
-#      app: accommodations-backend
-#  template:
-#    metadata:
-#      labels:
-#        app: accommodations-backend
-#    spec:
-#      containers:
-#        - name: backend
-#          image: tammy38/renting-app-backend:latest
-#          ports:
-#            - containerPort: 9090
-#          env:
-#            - name: SPRING_DATASOURCE_URL
-#              value: jdbc:postgresql://db:5432/accommodations-renting-db
-#            - name: SPRING_DATASOURCE_USERNAME
-#              value: postgres
-#            - name: SPRING_DATASOURCE_PASSWORD
-#              valueFrom:
-#                secretKeyRef:
-#                  name: db-secret
-#                  key: DATABASE_PASSWORD
-#          volumeMounts:
-#            - name: backend-storage
-#              mountPath: /app/data
-#      volumes:
-#      - name: backend-storage
-#        emptyDir: {}
+
 

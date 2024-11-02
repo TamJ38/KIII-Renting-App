@@ -1,36 +1,3 @@
-#apiVersion: networking.k8s.io/v1
-#kind: Ingress
-#metadata:
-#  name: accommodations-ingress
-#  namespace: accommodations
-#  annotations:
-#    ingress.kubernetes.io/ssl-redirect: "false"
-#spec:
-#  rules:
-#    - host: rentingApp.local.com  # Replace with your domain or IP address
-#      http:
-#        paths:
-#          - path: /
-#            pathType: Prefix
-#            backend:
-#              service:
-#                name: accommodations-frontend-service
-#                port:
-#                  number: 3000
-
-#apiVersion: traefik.containo.us/v1alpha1
-#kind: Middleware
-#metadata:
-#  name: accommodations-frontend-ingress
-#  namespace: accommodations
-#spec:
-#  stripPrefix:
-#    forceSlash: false
-#    prefixes:
-#      - /api
-#      - /
-
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -61,31 +28,5 @@ spec:
                 port:
                   number: 3000
 
-#apiVersion: networking.k8s.io/v1
-#kind: Ingress
-#metadata:
-#  name: accommodations-frontend-ingress
-#  namespace: accommodations
-#  annotations:
-#    ingress.kubernetes.io/ssl-redirect: "false"
-#    traefik.ingress.kubernetes.io/router.entrypoints: web
-#spec:
-#  rules:
-#    - host: renting-app.local.com
-#      http:
-#        paths:
-#          - path: /api
-#            pathType: Prefix
-#            backend:
-#              service:
-#                name: accommodations-backend-service
-#                port:
-#                  number: 9090
-#          - path: /
-#            pathType: Prefix
-#            backend:
-#              service:
-#                name: accommodations-frontend-service
-#                port:
-#                  number: 80
+
 
