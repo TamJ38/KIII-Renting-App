@@ -1,62 +1,32 @@
-#apiVersion: networking.k8s.io/v1
-#kind: Ingress
-#metadata:
-#  name: accommodations-frontend-ingress
-#  namespace: accommodations
-#  annotations:
-#    kubernetes.io/ingress.class: traefik
-#    ingress.kubernetes.io/ssl-redirect: "false"
-#    traefik.ingress.kubernetes.io/router.entrypoints: web
-#spec:
-#  ingressClassName: traefik
-#  rules:
-#    - host: renting-app.local.com
-#      http:
-#        paths:
-#          - path: /api/
-#            pathType: Prefix
-#            backend:
-#              service:
-#                name: accommodations-backend-service
-#                port:
-#                  number: 9090
-#          - path: /
-#            pathType: Prefix
-#            backend:
-#              service:
-#                name: accommodations-frontend-service
-#                port:
-#                  number: 80
-#
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:
-    ingress.kubernetes.io/ssl-redirect: 'false'
-    kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/router.entrypoints: web
-  labels:
-    app.kubernetes.io/instance: renting-accommodations
   name: accommodations-frontend-ingress
   namespace: accommodations
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+    argocd.argoproj.io/health: "Healthy"
 spec:
   ingressClassName: traefik
   rules:
     - host: renting-app.local.com
       http:
         paths:
-          - backend:
+          - path: /api/
+            pathType: Prefix
+            backend:
               service:
                 name: accommodations-backend-service
                 port:
                   number: 9090
-            path: /api/
+          - path: /
             pathType: Prefix
-          - backend:
+            backend:
               service:
                 name: accommodations-frontend-service
                 port:
                   number: 80
-            path: /
-            pathType: Prefix
+
+
