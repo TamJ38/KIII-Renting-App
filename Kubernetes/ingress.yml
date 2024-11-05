@@ -7,7 +7,6 @@ metadata:
     kubernetes.io/ingress.class: traefik
     ingress.kubernetes.io/ssl-redirect: "false"
     traefik.ingress.kubernetes.io/router.entrypoints: web
-    argocd.argoproj.io/health: "Healthy"
 spec:
   ingressClassName: traefik
   rules:
