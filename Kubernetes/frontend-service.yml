@@ -4,10 +4,10 @@ metadata:
   name: accommodations-frontend-service
   namespace: accommodations
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - name: http
-      port: 80
-      targetPort: 80
+      port: 3000
+      targetPort: 3000
   selector:
     app: accommodations-frontend
