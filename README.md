@@ -16,7 +16,7 @@ Renting Accommodations is a full-stack web application that allows users to brow
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 - **Frontend:** React.js
 - **Backend:** Spring Boot
 - **Database:** PostgreSQL
@@ -25,7 +25,7 @@ Renting Accommodations is a full-stack web application that allows users to brow
 
 ---
 
-## 🔧 Installation
+## Installation
 
 Follow these steps to set up the project locally:
 
@@ -46,7 +46,7 @@ cd ../lab1
 ./mvnw spring-boot:run  
 
 ```
-## 🔧 Docker Setup
+## Docker Setup
 
 ```sh
 # 1. Create and modify .env file according to your values 
@@ -57,7 +57,7 @@ docker compose up -d
 
 ```
 
-## 📜 Sample .env File
+## Sample .env File
 
 To store sensitive credentials securely, use a .env file:
 
@@ -71,7 +71,7 @@ SPRING_DATASOURCE_USERNAME=postgres
 SPRING_DATASOURCE_PASSWORD=your_secure_password  
 ```
 
-## ☸️ Kubernetes Setup
+## Kubernetes Setup
 The application can be deployed on a Kubernetes cluster.
 
 ### ✅ 1. Update the hosts file
@@ -84,7 +84,7 @@ Run the following command to deploy the application and run the Kubernetes manif
 ```sh
 kubectl apply -f .
 ```
-## 🌐 Usage
+## Usage
 ### 🔹 With Docker Compose:
 ```sh 
 Frontend: http://localhost:3000
