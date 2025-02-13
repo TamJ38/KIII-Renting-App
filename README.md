@@ -1,4 +1,4 @@
-# 🏠Renting Accommodations  
+# 🏠 Renting Accommodations  
 
 ## 📖 Table of Contents
 - [Description](#description)
@@ -10,7 +10,7 @@
 
 ---
 
-## 📝 Description
+## Description
 Renting Accommodations is a full-stack web application that allows users to browse, rent, and manage accommodations. It includes a **React.js** frontend, a **Spring Boot** backend, and a **PostgreSQL** database. The project is containerized using **Docker** and orchestrated with **Kubernetes**.
 
 ---
@@ -56,7 +56,7 @@ docker compose up -d
 
 ```
 
-## Sample .env File
+### Sample .env File
 
 To store sensitive credentials securely, use a .env file:
 
