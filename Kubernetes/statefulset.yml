@@ -21,14 +21,17 @@ spec:
             - containerPort: 5432
           env:
             - name: POSTGRES_USER
-              value: postgres
+              valueFrom:
+                configMapKeyRef:
+                  name: nginx-config
+                  key: SPRING_DATASOURCE_USERNAME
             - name: POSTGRES_PASSWORD
-              value: tammy38
-#              valueFrom:
-#                secretKeyRef:
-#                  name: db-secret
-#                  key: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: DATABASE_PASSWORD
             - name: POSTGRES_DB
               value: accommodations-renting-db
+
 
 
