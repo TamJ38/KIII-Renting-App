@@ -1,5 +1,6 @@
 <h1>Renting-App</h1>
-# 🏠 Renting Accommodations  
+
+# 🏠Renting Accommodations  
 
 ## 📖 Table of Contents
 - [Description](#description)
